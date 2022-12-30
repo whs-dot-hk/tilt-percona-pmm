@@ -5,8 +5,8 @@ metadata:
   name: %s
 """ % name))
 
-name = "percona-pmm-test"
+name = "pmm"
 
 create_namespace(name)
 
-k8s_yaml(helm("charts/pmm", name, namespace = name))
+k8s_yaml(helm("charts/pmm", name, namespace = name, values = "values.yaml"))

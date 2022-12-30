@@ -1,0 +1,21 @@
+image:
+  repository: whshk/pmm-server-custom
+  pullPolicy: Always
+
+secret:
+  pmm_password: admin
+
+service:
+  ports:
+    - port: 443
+      targetPort: https
+      protocol: TCP
+      name: https
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: 9091
+      targetPort: 9091
+      protocol: TCP
+      name: prometheus
