@@ -82,14 +82,12 @@ spec:
                   key: PMM_ADMIN_PASSWORD
                   optional: true
           ports:
-            - name: http
-              containerPort: 80
-            - name: https
-              containerPort: 443
+            - name: prometheus
+              containerPort: 9090
           readinessProbe:
             httpGet:
-              path: /v1/readyz
-              port: http
+              path: /prometheus/
+              port: prometheus
           {{- if .Values.readyProbeConf }} 
             {{- toYaml .Values.readyProbeConf | nindent 12 }}
           {{- end }}
